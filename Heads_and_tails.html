@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>โปรแกรมทำนายหัวหรือก้อย</h2>
+    <div id="game-list"></div>
+    <div id="round"></div>
+    <div id="loss"></div>
+    <div id="no"></div>
+</body>
+<script>
+    let round = prompt("คุณต้องการเล่นกี่รอบ")
+    for (var i = 0; i < round; i++) {
+        var enter = prompt("หัวหรือก้อย")
+        var sum = 0
+        var score =0
+        sum += parseInt(round)
+        var answer = ""
+        if (Math.floor(Math.random() * 10) <= 4) {
+            answer = "หัว"
+        } else {
+            answer = "ก้อย"
+        }
+        if (enter == answer) {
+            alert("ถูกต้องคร้าบบ!!");
+            score += 1;
+        } else if (answer !== "หัว" && answer !== "ก้อย") {
+            alert("ตอบหัวหรือก้อยเท่านั้น");
+        } else {
+            alert("ผิดคร้าบ!!");
+        }
+
+        if (enter == answer) {
+            document.getElementById("game-list").innerHTML += "จำนวนรอบที่" + i + ":" + enter + " ถูกต้อง" + " ออกเหมือนกัน " + answer + "<br>"
+        }
+        else {
+            document.getElementById("game-list").innerHTML += "จำนวนรอบที่ " + i + ": " + enter + " ผิดจร้า " + " ออกไม่เหมือนกัน " + answer + "<br>"
+        }
+    }
+    document.getElementById("round").innerHTML = "จำนวนรอบทั้งหมด " + sum + "รอบ"
+    document.getElementById("loss").innerHTML = "คะแนนทั้งหมด " + score + "คะแนน"
+</script>
+
+</html>

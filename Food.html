@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>โปรแกรมคำนวณอาหาร</h3>
+    <p id = "result"></p>
+    <div id="prict"></div>
+</body>
+<script>
+    let qrt=prompt("จำนวนสินค้า")
+    let sum= 0
+    for(var i = 1; i <= qrt; i++ ){//การวนซ้ำที่แน่นอนคือการใช้ For Loop และที่ไม่แน่นอนใช้ while loop
+        let item_price= prompt("ราคาชิ้นที่ "+ i)
+        sum = sum + parseInt( item_price )//ราคารวมของสินค้า
+        document.getElementById("prict").innerHTML += 
+        "รายการสินค้าที่ "+ i + ":"+ item_price +"บาท"+"<br>"
+    }
+        document.getElementById("result").innerHTML = "ราคาสินค้าที่สั่งทั้งหมด " +sum+" บาท"
+
+</script>
+</html>

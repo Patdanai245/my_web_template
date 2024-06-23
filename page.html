@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressbar</title>
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box; 
+        }
+        html{
+            font-size: 10px;
+            scroll-behavior: smooth;
+        }
+        p{
+            font-size: 1.6rem;
+            line-height: 1.5;
+        }
+        img{
+            width: 100%;
+        }
+        .container{
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header{
+            width: 100%;
+            background: #333;
+            position:fixed;
+            left: 0;
+            top:0;
+        }
+        nav{
+            height: 7.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo{
+            font-size: 2.5rem;
+            color: #fff;
+        }
+        .nav-list{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-list li{
+            list-style: none;
+            margin: 0 1.5rem;
+        }
+        li a{
+            color: #fff;
+            font-size: 1.6rem;
+            text-decoration: none;
+        }
+        section{
+            padding: 5rem 0;
+        }
+        .box{
+            border: 1px solid gray;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        h2{
+            font-size:  3rem;
+        }
+        .flex{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .flex > *{
+            margin: 3px;
+        }
+        section.header{
+            width: 100%;
+            height: 90vh;
+            background: url("https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") center no-repeat;
+            background-size: cover;
+        }
+        .scroll-indicator{
+            width: 100%;
+            height: 4px;
+            background: #9b7373;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 999;
+            /* visibility: hidden; */
+        }
+        .progress{
+            width: 0%;
+            height: 4px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <!-- progressbar -->
+    <div class="scroll-indicator"></div>
+    <div class="progress"></div>
+
+    <!-- navbar -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">My websilte</div>
+                <ul class="nav-list">
+                    <li><a href="#">หน้าแรก</a></li>
+                    <li><a href="#product">สินค้า</a></li>
+                    <li><a href="#service">บริการ</a></li>
+                    <li><a href="#about">เกี่ยวกับเรา</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="header"></section>
+    <!-- content -->
+    <section id="product">
+        <div class="container box">
+            <h2>สินค้า</h2>
+            <div class="flex">
+                <img src="https://picsum.photos/400/250" alt="" >
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quasi, amet et esse iusto error explicabo quia, in tempore aspernatur totam officia. Ullam, repellendus labore? Blanditiis inventore earum aut consectetur!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="service">
+        <div class="container box">
+            <h2>บริการ</h2>
+            <div class="flex">
+                <img src="https://picsum.photos/400/250" alt="" >
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quasi, amet et esse iusto error explicabo quia, in tempore aspernatur totam officia. Ullam, repellendus labore? Blanditiis inventore earum aut consectetur!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container box">
+            <h2>เกี่ยวกับเรา</h2>
+            <div class="flex">
+                <img src="https://picsum.photos/400/250" alt="" >
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quasi, amet et esse iusto error explicabo quia, in tempore aspernatur totam officia. Ullam, repellendus labore? Blanditiis inventore earum aut consectetur!</p>
+            </div>
+        </div>
+    </section>
+<script>
+   const progress = document.querySelector(".progress")
+window.onscroll = () => scrollProgress() // เรียกใช้งาน
+function scrollProgress() {
+    const pageHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
+    const scrollTop = document.documentElement.scrollTop
+    const scroll = (scrollTop / pageHeight) * 100
+    progress.style.visibility = "visible"
+    progress.style.width = scroll + "%"
+}
+
+</script>
+</body>
+</html>

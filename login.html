@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        body{
+            display:flex;
+            align-content: center;
+            font-family: cursive;
+            background-color: rgba(46, 60, 124, 0.292);
+            padding-left: 40%;
+            
+            
+        }
+        .content{
+            margin-top: 25%;
+            border: 1px solid rgba(101, 64, 64, 0.255);
+            background-color: rgb(248, 248, 248);
+            height: 320px;
+            width: 320px;
+            padding: 20px 50px 50px 50px;
+            
+            
+        }
+
+        input[type="text"]{
+            display: block;
+            border-radius: 5px;
+            height: 25px;
+            width: 320px;
+            border: 2px solid rgba(12, 12, 203, 0.236);
+        }
+        input[type="password"]{
+            display: block;
+            border-radius: 5px;
+            height: 25px;
+            width: 320px;
+            border: 2px solid rgba(12, 12, 203, 0.236);
+
+        }
+        input[type="email"]{
+            display: block;
+            border-radius: 5px;
+            height: 25px;
+            width: 320px;
+            border: 2px solid rgba(12, 12, 203, 0.236);
+        }
+        .name{
+            font-size: 14px;
+            font-weight: bold;
+            
+        }
+        .plan-button{
+            display: inline-block;
+            padding: 10px 15px 10px 15px ;
+            align-items: center;
+            color: white;
+            background-color: orange;
+            border: none;
+            border-radius: 10px;
+            margin: 10px ;
+            margin-left: 40%;
+        }
+        h3{
+            text-align: center;
+            color: rgba(0, 18, 17, 0.499);
+        }
+        .plan-button:hover{
+            background-color:green;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h3> Register New Account</h3>
+    <div>
+        <label  class="name" for="rcp_user_login">Username</label><br>
+        <input type="text" name="email" id="email"><br>
+        <label   class="name" for="rcp_user_login">password</label><br>
+        <input type="password"><br>
+        <label  class="name" for="rcp_user_login">Email</label><br>
+        <input type="email" name="email" id="email"><br>
+        <button class="plan-button">บันทึก</button>
+    </div>
+
+    </div>
+</body>
+</html>

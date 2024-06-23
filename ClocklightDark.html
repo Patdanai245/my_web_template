@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ligth and Dark Mode</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        :root{ /*เก็บตัวแปร*/
+            --primary-color: #000;
+            --secondary-color: #fff;
+        }
+        body{
+            display:flex;
+            align-items:  center;
+            justify-content:center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        .time{
+            font-size:  60px;
+        }
+        .toggle{
+            cursor: pointer;
+            background: var(--primary-color);/*เรียกใช้*/
+            color:var(--secondary-color);
+            border: 0;
+            border-radius: 4px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 450px;
+        }
+        html.dark{
+            --primary-color: #fff;
+            --secondary-color: #333;
+        }
+        html.dark{
+            background-color: #111;
+            color: var(--primary-color);
+        }
+        html.dark{
+            transition:all 0.5s ease-in ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="time">เวลาปัจจุบัน</div>
+    </div>
+    <button class="toggle">โหมดกลางคืน</button>
+</body>
+<script>
+    const btntoggle =document.querySelector(".toggle")
+    const timeel = document.querySelector(".time") //เข้าถึงพื้นที่
+    function settime(){
+        const time = new Date()
+        const hours = time.getHours()
+        const min = time.getMinutes()
+        const seconds = time.getSeconds()
+        timeel.innerHTML=`${hours}: 
+        ${min < 10 ? `0${min}`: min}:
+        ${seconds < 10 ? `0${seconds}`: seconds}`
+    }
+    btntoggle.addEventListener("click",(e) =>{
+        const html = document.querySelector("html")
+        if(html.classList.contains('dark')){
+            html.classList.remove("dark")
+            e.target.innerHTML = "โหมดกลางคืน"
+        }else{
+            html.classList.add("dark")
+            e.target.innerHTML = "โหมดกลางวัน"
+        }
+    })
+    settime()
+    setInterval(settime,1000) //ควบคุมเวลา
+</script>
+</html>

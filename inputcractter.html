@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #005490;
+        }
+
+        .container {
+            width: 40rem;
+            border: 1px sold gray;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .count{
+            font-size: 4rem;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            display: block;
+            font-size: 16px;
+            border: 1px solid #dedede;
+            border-radius: 2px;
+            padding: 10px;
+            width: 100%;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>นับจำนวนตัวอักษร</h1>
+        <span class="count">0</span>
+        <input type="text" placeholder="ป้อนข้อความที่คุณต้องการ">
+    </div>
+    <script>
+        const count = document.querySelector(".count")
+        const input = document.querySelector("input")
+        input.addEventListener("keyup", () => {
+            count.innerHTML=input.value.length;
+        })
+    </script>
+</body>
+
+</html>

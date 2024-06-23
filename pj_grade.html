@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+        }
+
+        .popup #grade {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .popup button {
+            display: block;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Grade Calculator</h2>
+    <div class="container">
+        <label for="score">Enter score:</label>
+        <input type="number" id="score" placeholder="Enter score">
+        <button onclick="calculateGrade()">Calculate</button>
+    </div>
+    <div id="result" class="popup">
+        <span id="grade"></span>
+        <button onclick="restart()">Restart</button>
+    </div>
+
+    <script>
+        // ฟังก์ชันนี้ใช้สำหรับคำนวณเกรดจากคะแนนที่ผู้ใช้ป้อนเข้ามา
+        function calculateGrade() {
+            // รับค่าคะแนนที่ป้อนเข้ามาจาก input
+            var score = parseFloat(document.getElementById("score").value);
+
+            // สร้างตัวแปรเพื่อเก็บเกรด
+            var grade = "";
+
+            // ตรวจสอบคะแนนเพื่อกำหนดเกรด
+            if (score >= 90) {
+                grade = "A";
+            } else if (score >= 80) {
+                grade = "B";
+            } else if (score >= 70) {
+                grade = "C";
+            } else if (score >= 60) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            // แสดงเกรดในตัวเด้ง
+            var popup = document.getElementById("result");
+            var gradeSpan = document.getElementById("grade");
+            gradeSpan.innerHTML = "Grade: " + grade;
+            popup.style.display = "block";
+
+            // ล้างค่า input หลังจากคำนวณเสร็จแล้ว
+            document.getElementById("score").value = "";
+        }
+
+        // ฟังก์ชันนี้ใช้สำหรับซ่อนตัวเด้งและล้างค่าเกรด
+        function restart() {
+            var popup = document.getElementById("result");
+            popup.style.display = "none";
+            var gradeSpan = document.getElementById("grade");
+            gradeSpan.innerHTML = "";
+        }
+
+
+    </script>
+</body>
+
+</html>

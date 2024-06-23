@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>หมายเลขของคุณคือ </p>
+    <p id="result"></p>
+    <p>เลขที่ถูกรางวัลคือ </p>
+    <p id="random"></p>
+    <p>คุณถูกรางวัลหรือไม่</p>
+    <p id = "to"></p>
+    <p id="sad"></p>
+    <script>
+        let number = prompt("กรอกเลขที่ท่านต้องการ")
+        document.getElementById("result").innerHTML=number;
+        document.getElementById("random").innerHTML=Math.floor(Math.random()*100);
+        if(number == random){
+           document.getElementById("to").innerHTML="คุณถูกรางวัล ยินดีด้วย"
+        }else{
+            document.getElementById("to").innerHTML="คุณไม่ถูกรางวัล"
+            document.getElementById("sad").innerHTML="😞"
+        }
+    </script>
+</body>
+</html>
